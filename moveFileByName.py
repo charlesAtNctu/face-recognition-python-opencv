@@ -19,7 +19,8 @@ def main(argv):
 
     files = os.listdir(src_dir)
     for file in files:
-       print file
+       if file.startswith(prefix):
+          print file;
 
 
 if __name__ == "__main__":
