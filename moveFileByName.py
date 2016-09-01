@@ -3,7 +3,7 @@
 import sys
 
 def main(argv):
-    for x in argv[1:]:
+    for x in argv:
         print x;
 
 if __name__ == "__main__":
