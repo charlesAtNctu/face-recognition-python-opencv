@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import sys
+import os, sys
 
 def main(argv):
 
@@ -16,6 +16,10 @@ def main(argv):
     print 'prefix to look for: ', prefix ;
     print 'directory index   : ', dir_idx;
     print 'target directory  : ', tgt_dir;
+
+    files = os.listdir(src_dir)
+    for file in files:
+       print file
 
 
 if __name__ == "__main__":
