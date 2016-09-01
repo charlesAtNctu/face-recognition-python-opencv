@@ -22,7 +22,7 @@ def main(argv):
        if file.startswith(prefix):
           print file;
           segments = file.split('_');
-          print tgt_dir + segments[dir_idx] + "/"
+          print tgt_dir + segments[int(dir_idx)] + "/"
 
 
 if __name__ == "__main__":
