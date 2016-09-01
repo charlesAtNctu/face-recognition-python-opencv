@@ -7,10 +7,10 @@ def main(argv):
     #for x in argv:
     #    print x;
 
-    src_dir = argv[0];
-    prefix  = argv[1];
-    dir_idx = argv[2];
-    tgt_dir = argv[3];
+    src_dir = argv[1];
+    prefix  = argv[2];
+    dir_idx = argv[3];
+    tgt_dir = argv[4];
 
     print 'source directory  : ', src_dir;
     print 'prefix to look for: ', prefix ;
