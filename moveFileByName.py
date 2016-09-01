@@ -23,11 +23,13 @@ def main(argv):
           print file;
           segments = file.split('_');
           tgt_dir2 = tgt_dir + segments[int(dir_idx)] + "/"
-          # check if exists ...
 
+          # check if exists ...
           if not os.path.exists(tgt_dir2):
              print tgt_dir2 + " is being created !!!";
              os.makedirs(tgt_dir2);
+
+          os.rename(src_dir+file, tgt_dir2+file);
 
 
 if __name__ == "__main__":
