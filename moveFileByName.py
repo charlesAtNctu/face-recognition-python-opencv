@@ -22,7 +22,12 @@ def main(argv):
        if file.startswith(prefix):
           print file;
           segments = file.split('_');
-          print tgt_dir + segments[int(dir_idx)] + "/"
+          tgt_dir2 = tgt_dir + segments[int(dir_idx)] + "/"
+          # check if exists ...
+
+          if not os.path.exists(tgt_dir2):
+             print tgt_dir2 + " is being created !!!";
+             os.makedirs(tgt_dir2);
 
 
 if __name__ == "__main__":
