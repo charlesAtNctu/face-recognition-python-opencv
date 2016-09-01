@@ -21,6 +21,7 @@ def main(argv):
     for file in files:
        if file.startswith(prefix):
           print file;
+          print file.split('_');
 
 
 if __name__ == "__main__":
