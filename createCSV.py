@@ -27,7 +27,7 @@ def main(argv):
         print user_dir + " has label, " + str(label);
         images = os.listdir(face_dir+user_dir)
         for image in images:
-            print face_dir + user_dir + "/" + image + ";" + label;
+            print face_dir + user_dir + "/" + image + ";" + str(label);
         label = label + 1;
 
 
@@ -50,4 +50,4 @@ if __name__ == "__main__":
     #print 'Argument List:', str(sys.argv)
     main(sys.argv)
 
-# python facerecognizer2.py /var/nodes/easyrtc/node_modules/easyrtc/demos/latest/face/
+# python createCSV.py /var/nodes/easyrtc/node_modules/easyrtc/demos/latest/face/
