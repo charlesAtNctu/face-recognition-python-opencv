@@ -25,7 +25,7 @@ def main(argv):
 
     for user_dir in users:
         print user_dir + " has label, " + str(label);
-        images = os.listdir(user_dir)
+        images = os.listdir(face_dir+user_dir)
         for image in images:
             print image;
         label = label + 1;
