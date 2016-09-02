@@ -7,3 +7,4 @@ recognizer = cv2.face.createLBPHFaceRecognizer()
 recognizer = cv2.face.createLBPHFaceRecognizer();
 recognizer = cv2.face.createEigenFaceRecognizer();
 recognizer = cv2.face.createFisherFaceRecognizer();
+
