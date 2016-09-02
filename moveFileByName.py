@@ -4,6 +4,8 @@ import os, sys
 
 def main(argv):
 
+    print '***********************************************************************************************************';
+
     #for x in argv:
     #    print x;
 
@@ -20,7 +22,7 @@ def main(argv):
     files = os.listdir(src_dir)
     for file in files:
        if file.startswith(prefix):
-          print file;
+          # print file;
           segments = file.split('_');
           tgt_dir2 = tgt_dir + segments[int(dir_idx)] + "/"
 
