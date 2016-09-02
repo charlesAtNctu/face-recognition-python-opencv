@@ -18,13 +18,20 @@ def main(argv):
     face_dir = argv[1];
 
     print 'face directory  : ', face_dir;
-    # print 'prefix to look for: ', prefix ;
-    # print 'directory index   : ', dir_idx;
-    # print 'target directory  : ', tgt_dir;
-    #
-    files = os.listdir(face_dir)
-    for file in files:
-        print file;
+
+    users = os.listdir(face_dir)
+
+    label = 0;
+
+    for user_dir in users:
+        print user_dir + " has label, " + label;
+        images = os.listdir(user_dir)
+        for image in images:
+            print image;
+        label = label + 1;
+
+
+
     #    if file.startswith(prefix):
     #       # print file;
     #       segments = file.split('_');
