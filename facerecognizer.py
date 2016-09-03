@@ -59,7 +59,7 @@ def main(argv):
     # Perform the tranining
     recognizer.train(images, np.array(labels))
 
-    image_path = "/var/nodes/easyrtc/node_modules/easyrtc/demos/latest/face/cliu/face_cliu_20160901174419978.png"
+    image_path = "/var/nodes/easyrtc/node_modules/easyrtc/demos/latest/face/cliu/face_chuchi_20160901174419978.png"
     predict_image_pil = Image.open(image_path).convert('L')
     predict_image = np.array(predict_image_pil, 'uint8')
     faces = faceCascade.detectMultiScale(predict_image)
