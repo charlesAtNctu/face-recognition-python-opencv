@@ -53,7 +53,7 @@ def get_images_and_labels(path):
 def main(argv):
     print cv2.__version__;
     face_dir_path = argv[1];
-    get_images_and_labels(face_dir_path)
+    images, labels = get_images_and_labels(face_dir_path)
 
 if __name__ == "__main__":
     main(sys.argv)
