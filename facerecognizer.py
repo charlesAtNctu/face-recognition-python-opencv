@@ -77,7 +77,7 @@ def main(argv):
     faces = faceCascade.detectMultiScale(predict_image)
     for (x, y, w, h) in faces:
         nbr_predicted, conf = recognizer.predict(predict_image[y: y + h, x: x + w])
-        nbr_actual = id2label[image_path];#int(os.path.split(image_path)[1].split(".")[0].replace("subject", ""))
+        nbr_actual = id2label[image_path[0:image_path.rfind('/')]];#int(os.path.split(image_path)[1].split(".")[0].replace("subject", ""))
 
         print "recognized as " + label2id[nbr_predicted][label2id[nbr_predicted].rfind('/')+1:];
 
