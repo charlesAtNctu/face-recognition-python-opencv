@@ -33,23 +33,21 @@ def get_images_and_labels(path):
             print "USER IMAGE PATH: " + user_image_path;
             user_image_pil = Image.open(user_image_path).convert('L') # Read the image and convert to grayscale
             user_image_np = np.array(user_image_pil, 'uint8') # Convert the image format into numpy array
-            nbr = label;
+
             faces = faceCascade.detectMultiScale(user_image_np)
+            for (x, y, w, h) in faces:
+                images.append(user_image_np[y: y + h, x: x + w])
+                labels.append(label)
+                cv2.imshow("Adding faces to traning set...", user_image_np[y: y + h, x: x + w])
+                cv2.waitKey(50)
 
         label = label + 1;
 
+    return images, labels
 
 
 
-    #
-    #     # If face is detected, append the face to images and the label to labels
-    #     for (x, y, w, h) in faces:
-    #         images.append(image[y: y + h, x: x + w])
-    #         labels.append(nbr)
-    #         cv2.imshow("Adding faces to traning set...", image[y: y + h, x: x + w])
-    #         cv2.waitKey(50)
-    # # return the images list and labels list
-    # return images, labels
+
 
 
 def main(argv):
