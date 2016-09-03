@@ -71,7 +71,7 @@ def main(argv):
 
     face_dir_path = argv[1];
 
-    image_path = argv[2];
+    test_image_path = argv[2];
 
     images, labels = get_images_and_labels(face_dir_path)
     #cv2.destroyAllWindows()
@@ -82,23 +82,24 @@ def main(argv):
     #image_path = "/var/nodes/easyrtc/node_modules/easyrtc/demos/latest/face/chuchi/face_cliu_20160901174419978.png"
 
     print ""
-    print "given " + image_path;
+    print "given " + test_image_path;
     print ""
 
-    predict_image_pil = Image.open(image_path).convert('L')
+    predict_image_pil = Image.open(test_image_path).convert('L')
     predict_image = np.array(predict_image_pil, 'uint8')
     faces = faceCascade.detectMultiScale(predict_image)
     for (x, y, w, h) in faces:
         nbr_predicted, conf = recognizer.predict(predict_image[y: y + h, x: x + w])
-        nbr_actual = id2label[image_path[0:image_path.rfind('/')]];#int(os.path.split(image_path)[1].split(".")[0].replace("subject", ""))
+
+        ## nbr_actual = id2label[test_image_path[0:test_image_path.rfind('/')]];#int(os.path.split(image_path)[1].split(".")[0].replace("subject", ""))
 
         print "recognized as " + label2id[nbr_predicted][label2id[nbr_predicted].rfind('/')+1:];
         print ""
 
-        if nbr_actual == nbr_predicted:
-            print "{} is Correctly Recognized with confidence {}".format(nbr_actual, conf)
-        else:
-            print "{} is Incorrect Recognized as {}".format(nbr_actual, nbr_predicted)
+        ## if nbr_actual == nbr_predicted:
+        ##     print "{} is Correctly Recognized with confidence {}".format(nbr_actual, conf)
+        ## else:
+        ##     print "{} is Incorrect Recognized as {}".format(nbr_actual, nbr_predicted)
 
     print ""
 
