@@ -23,8 +23,9 @@ def get_images_and_labels(path):
     images = []
     labels = []
 
+    label = 0;
     for image_path in image_paths:
-        label = 0;
+
         print image_path + " has label, " + str(label);
         user_images = os.listdir(image_path)
         for user_image in user_images:
