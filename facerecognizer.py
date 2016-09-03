@@ -90,6 +90,7 @@ def main(argv):
     faces = faceCascade.detectMultiScale(predict_image)
 
     print "# of faces: " + str(len(faces));
+    print faces;
 
     for (x, y, w, h) in faces:
         nbr_predicted, conf = recognizer.predict(predict_image[y: y + h, x: x + w])
