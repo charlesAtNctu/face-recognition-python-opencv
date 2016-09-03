@@ -15,6 +15,7 @@ faceCascade = cv2.CascadeClassifier(cascadePath)
 recognizer = cv2.face.createLBPHFaceRecognizer();
 
 label2id = {}
+id2label = {}
 
 def get_images_and_labels(path):
 
@@ -30,6 +31,7 @@ def get_images_and_labels(path):
     for image_path in image_paths:
 
         label2id[label] = image_path;
+        id2label[image_path] = label;
 
         print image_path + " has label, " + str(label);
         user_images = os.listdir(image_path)
@@ -75,7 +77,7 @@ def main(argv):
     faces = faceCascade.detectMultiScale(predict_image)
     for (x, y, w, h) in faces:
         nbr_predicted, conf = recognizer.predict(predict_image[y: y + h, x: x + w])
-        nbr_actual = 4;#int(os.path.split(image_path)[1].split(".")[0].replace("subject", ""))
+        nbr_actual = id2label[image_path];#int(os.path.split(image_path)[1].split(".")[0].replace("subject", ""))
 
         print "recognized as " + label2id[nbr_predicted][label2id[nbr_predicted].rfind('/')+1:];
 
