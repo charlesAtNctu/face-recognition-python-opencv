@@ -59,14 +59,18 @@ def get_images_and_labels(path):
 
 def main(argv):
     print cv2.__version__;
+
     face_dir_path = argv[1];
+
+    image_path = argv[2];
+
     images, labels = get_images_and_labels(face_dir_path)
     #cv2.destroyAllWindows()
 
     # Perform the tranining
     recognizer.train(images, np.array(labels))
 
-    image_path = "/var/nodes/easyrtc/node_modules/easyrtc/demos/latest/face/chuchi/face_cliu_20160901174419978.png"
+    #image_path = "/var/nodes/easyrtc/node_modules/easyrtc/demos/latest/face/chuchi/face_cliu_20160901174419978.png"
 
     print ""
     print "given " + image_path;
