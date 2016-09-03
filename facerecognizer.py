@@ -77,9 +77,7 @@ def main(argv):
         nbr_predicted, conf = recognizer.predict(predict_image[y: y + h, x: x + w])
         nbr_actual = 4;#int(os.path.split(image_path)[1].split(".")[0].replace("subject", ""))
 
-        print ""
-        print "recognized as " + label2id[nbr_predicted][label2id[nbr_predicted].rfind('/'):];
-        print ""
+        print "recognized as " + label2id[nbr_predicted][label2id[nbr_predicted].rfind('/')+1:];
 
         if nbr_actual == nbr_predicted:
             print "{} is Correctly Recognized with confidence {}".format(nbr_actual, conf)
