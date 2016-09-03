@@ -19,15 +19,17 @@ def get_images_and_labels(path):
 
     image_paths = [os.path.join(path, f) for f in os.listdir(path)]
     print image_paths;# user dir abs path here !!!
-    images = []
 
+    images = []
     labels = []
+
     for image_path in image_paths:
         label = 0;
         print image_path + " has label, " + str(label);
         user_images = os.listdir(image_path)
         for user_image in user_images:
             print user_image;
+        label = label + 1;
 
     #     # Read the image and convert to grayscale
     #     image_pil = Image.open(image_path).convert('L')
