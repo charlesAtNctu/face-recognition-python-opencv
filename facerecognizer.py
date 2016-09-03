@@ -65,6 +65,11 @@ def main(argv):
     recognizer.train(images, np.array(labels))
 
     image_path = "/var/nodes/easyrtc/node_modules/easyrtc/demos/latest/face/chuchi/face_cliu_20160901174419978.png"
+
+    print ""
+    print "given " + image_path;
+    print ""
+
     predict_image_pil = Image.open(image_path).convert('L')
     predict_image = np.array(predict_image_pil, 'uint8')
     faces = faceCascade.detectMultiScale(predict_image)
@@ -72,8 +77,10 @@ def main(argv):
         nbr_predicted, conf = recognizer.predict(predict_image[y: y + h, x: x + w])
         nbr_actual = 4;#int(os.path.split(image_path)[1].split(".")[0].replace("subject", ""))
 
-        print "recognized as " + label2id[nbr_predicted];
-        
+        print ""
+        print "recognized as " + label2id[nbr_predicted].substring(label2id[nbr_predicted].rfind('/'));
+        print ""
+
         if nbr_actual == nbr_predicted:
             print "{} is Correctly Recognized with confidence {}".format(nbr_actual, conf)
         else:
