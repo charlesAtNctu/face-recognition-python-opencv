@@ -36,7 +36,7 @@ def get_images_and_labels(path):
 
         print image_path + " has label, " + str(label);
         # user_images = os.listdir(image_path)
-        user_images = [os.path.join(image_path, f) for f in os.listdir(image_path) if not f.start_with('test_')]
+        user_images = [os.path.join(image_path, f) for f in os.listdir(image_path) if not f.startswith('test_')]
 
         for user_image in user_images:
             user_image_path = image_path + "/" + user_image;
