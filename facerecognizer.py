@@ -29,10 +29,10 @@ def get_images_and_labels(path):
         print image_path + " has label, " + str(label);
         user_images = os.listdir(image_path)
         for user_image_path in user_images:
-            print user_image_path;
+            print "USER IMAGE PATH: " + user_image_path;
             user_image_pil = Image.open(user_image_path).convert('L') # Read the image and convert to grayscale
-            user_image = np.array(user_image_pil, 'uint8') # Convert the image format into numpy array
-            
+            #user_image = np.array(user_image_pil, 'uint8') # Convert the image format into numpy array
+
         label = label + 1;
 
 
