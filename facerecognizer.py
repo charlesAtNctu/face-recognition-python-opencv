@@ -38,8 +38,8 @@ def get_images_and_labels(path):
             for (x, y, w, h) in faces:
                 images.append(user_image_np[y: y + h, x: x + w])
                 labels.append(label)
-                cv2.imshow("Adding faces to traning set...", user_image_np[y: y + h, x: x + w])
-                cv2.waitKey(50)
+                #cv2.imshow("Adding faces to traning set...", user_image_np[y: y + h, x: x + w])
+                #cv2.waitKey(50)
 
         label = label + 1;
 
