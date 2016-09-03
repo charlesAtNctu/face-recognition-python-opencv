@@ -81,11 +81,13 @@ def main(argv):
 
         print "recognized as " + label2id[nbr_predicted][label2id[nbr_predicted].rfind('/')+1:];
         print ""
-        
+
         if nbr_actual == nbr_predicted:
             print "{} is Correctly Recognized with confidence {}".format(nbr_actual, conf)
         else:
             print "{} is Incorrect Recognized as {}".format(nbr_actual, nbr_predicted)
+
+    print ""
 
 if __name__ == "__main__":
     main(sys.argv)
