@@ -1,5 +1,5 @@
 #!/usr/bin/python
-
+# from http://hanzratech.in/2015/02/03/face-recognition-using-opencv.html
 # Import the required modules
 import cv2, os
 import numpy as np
@@ -10,7 +10,7 @@ cascadePath = "haarcascade_frontalface_default.xml"
 faceCascade = cv2.CascadeClassifier(cascadePath)
 
 # For face recognition we will the the LBPH Face Recognizer 
-recognizer = cv2.createLBPHFaceRecognizer()
+recognizer = cv2.face.createLBPHFaceRecognizer()
 
 def get_images_and_labels(path):
     # Append all the absolute image paths in a list image_paths
