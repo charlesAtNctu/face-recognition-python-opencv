@@ -23,6 +23,7 @@ def get_images_and_labels(path):
 
     image_paths = [os.path.join(path, f) for f in os.listdir(path)]
     print image_paths;# user dir abs path here !!!
+    print ""
 
     images = []
     labels = []
