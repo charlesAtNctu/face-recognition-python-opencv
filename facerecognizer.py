@@ -38,7 +38,7 @@ def get_images_and_labels(path):
         user_images = os.listdir(image_path)
         for user_image in user_images:
             user_image_path = image_path + "/" + user_image;
-            print "USER IMAGE PATH: " + user_image_path;
+            #print "USER IMAGE PATH: " + user_image_path;
             user_image_pil = Image.open(user_image_path).convert('L') # Read the image and convert to grayscale
             user_image_np = np.array(user_image_pil, 'uint8') # Convert the image format into numpy array
 
@@ -50,8 +50,8 @@ def get_images_and_labels(path):
                 #cv2.imshow("Adding faces to traning set...", user_image_np[y: y + h, x: x + w])
                 #cv2.waitKey(50)
 
-            print "traing count: " + str(counter);
-            print ""
+        print "traing count: " + str(counter);
+        print ""
 
         label = label + 1;
 
