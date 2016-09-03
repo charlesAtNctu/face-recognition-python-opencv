@@ -54,6 +54,10 @@ def main(argv):
     print cv2.__version__;
     face_dir_path = argv[1];
     images, labels = get_images_and_labels(face_dir_path)
+    #cv2.destroyAllWindows()
+
+    # Perform the tranining
+    recognizer.train(images, np.array(labels))
 
 if __name__ == "__main__":
     main(sys.argv)
