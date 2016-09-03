@@ -13,6 +13,9 @@ faceCascade = cv2.CascadeClassifier(cascadePath)
 # recognizer = cv2.face.createFisherFaceRecognizer();
 # For face recognition we will the the LBPH Face Recognizer
 recognizer = cv2.face.createLBPHFaceRecognizer();
+
+label2id = {}
+
 def get_images_and_labels(path):
 
 
@@ -25,6 +28,8 @@ def get_images_and_labels(path):
 
     label = 0;
     for image_path in image_paths:
+
+        label2id[label] = image_path;
 
         print image_path + " has label, " + str(label);
         user_images = os.listdir(image_path)
@@ -66,6 +71,9 @@ def main(argv):
     for (x, y, w, h) in faces:
         nbr_predicted, conf = recognizer.predict(predict_image[y: y + h, x: x + w])
         nbr_actual = 4;#int(os.path.split(image_path)[1].split(".")[0].replace("subject", ""))
+
+        print "recognized as " + label2id[nbr_predicted];
+        
         if nbr_actual == nbr_predicted:
             print "{} is Correctly Recognized with confidence {}".format(nbr_actual, conf)
         else:
