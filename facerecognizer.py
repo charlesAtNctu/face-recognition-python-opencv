@@ -50,7 +50,8 @@ def get_images_and_labels(path):
                 #cv2.imshow("Adding faces to traning set...", user_image_np[y: y + h, x: x + w])
                 #cv2.waitKey(50)
 
-            print "count: " + counter;
+            print "traing count: " + str(counter);
+            print ""
 
         label = label + 1;
 
