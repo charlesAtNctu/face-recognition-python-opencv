@@ -32,6 +32,7 @@ def get_images_and_labels(path):
 
         label2id[label] = image_path;
         id2label[image_path] = label;
+        counter = 0;
 
         print image_path + " has label, " + str(label);
         user_images = os.listdir(image_path)
@@ -45,8 +46,11 @@ def get_images_and_labels(path):
             for (x, y, w, h) in faces:
                 images.append(user_image_np[y: y + h, x: x + w])
                 labels.append(label)
+                counter = counter + 1
                 #cv2.imshow("Adding faces to traning set...", user_image_np[y: y + h, x: x + w])
                 #cv2.waitKey(50)
+
+            print "count: " + counter;
 
         label = label + 1;
 
