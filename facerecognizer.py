@@ -78,7 +78,7 @@ def main(argv):
         nbr_actual = 4;#int(os.path.split(image_path)[1].split(".")[0].replace("subject", ""))
 
         print ""
-        print "recognized as " + label2id[nbr_predicted].substring(label2id[nbr_predicted].rfind('/'));
+        print "recognized as " + label2id[nbr_predicted][label2id[nbr_predicted].rfind('/'):];
         print ""
 
         if nbr_actual == nbr_predicted:
