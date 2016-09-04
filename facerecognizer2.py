@@ -1,6 +1,6 @@
 
 
-
+import os.path, time
 import cv2, os, sys
 import numpy as np
 from PIL import Image
@@ -74,8 +74,9 @@ def getMaxLastModified(path):
 
         user_images = [os.path.join(image_path, f) for f in os.listdir(image_path) if not f.startswith('test_')]
 
-        for user_image in user_images:
-            print user_image
+        for user_image_file_path in user_images:
+            print user_image_file_path
+            print "last modified: %s" % time.ctime(os.path.getmtime(user_image_file_path)
             print ""
 
 
