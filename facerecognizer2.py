@@ -76,7 +76,7 @@ def getMaxLastModified(path):
 
         for user_image_file_path in user_images:
             print user_image_file_path
-            print "last modified: %s" % time.ctime(os.path.getmtime(user_image_file_path)
+            print "last modified: %s" % time.ctime(os.path.getmtime(user_image_file_path))
             print ""
 
 
