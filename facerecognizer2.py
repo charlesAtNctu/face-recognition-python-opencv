@@ -108,9 +108,9 @@ def main(argv):
 
         #image_path = "/var/nodes/easyrtc/node_modules/easyrtc/demos/latest/face/chuchi/face_cliu_20160901174419978.png"
 
-        print ""
-        print "given " + test_image_path;
-        print ""
+        #print ""
+        #print "given " + test_image_path;
+        #print ""
 
         try:
 
