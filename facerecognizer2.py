@@ -137,8 +137,8 @@ def main(argv):
             print ""
 
         except IOError, e:
-
-            print "might be caused by no such file exception ..."
+            dummy = 0
+            # print "might be caused by no such file exception ..."
 
 if __name__ == "__main__":
     main(sys.argv)
