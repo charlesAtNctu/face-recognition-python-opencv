@@ -97,6 +97,7 @@ def main(argv):
 
     face_dir_path = argv[1];
     test_image_path = argv[2];
+    dest_dir_path = argv[3];
 
     sofar_max_last_modified_time = 0
     while True:
@@ -135,6 +136,9 @@ def main(argv):
                 ##     print "{} is Incorrect Recognized as {}".format(nbr_actual, nbr_predicted)
 
             print ""
+
+            os.rename(test_image_path, dest_dir_path)
+
 
         except IOError, e:
             dummy = 0
