@@ -64,6 +64,8 @@ def get_images_and_labels(path):
 
 def getMaxLastModified(path):
 
+    maxLastModified = "-1"
+
     image_paths = [os.path.join(path, f) for f in os.listdir(path)]
     print image_paths;
     print ""
@@ -76,9 +78,11 @@ def getMaxLastModified(path):
 
         for user_image_file_path in user_images:
             print user_image_file_path
-            print "last modified: %s" % time.ctime(os.path.getmtime(user_image_file_path))
-            print "last modified: %s" % os.path.getmtime(user_image_file_path)
+            print "1) last modified: %s" % time.ctime(os.path.getmtime(user_image_file_path))
+            print "2) last modified: %s" % os.path.getmtime(user_image_file_path)
+            print "3) last modified: %s" % round(os.stat(user_image_file_path).st_mtime)
             print ""
+
 
 
 def main(argv):
