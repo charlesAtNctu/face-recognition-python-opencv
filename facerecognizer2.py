@@ -83,6 +83,11 @@ def getMaxLastModified(path):
             print "3) last modified: %s" % round(os.stat(user_image_file_path).st_mtime)
             print ""
 
+            last_modified_time = round(os.stat(user_image_file_path).st_mtime)
+            if last_modified_time > 0:
+                print "greater than zero"
+
+
 
 
 def main(argv):
