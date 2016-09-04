@@ -112,27 +112,33 @@ def main(argv):
         print "given " + test_image_path;
         print ""
 
-        predict_image_pil = Image.open(test_image_path).convert('L')
-        predict_image = np.array(predict_image_pil, 'uint8')
-        faces = faceCascade.detectMultiScale(predict_image)
+        try:
 
-        print "# of faces: " + str(len(faces));
-        print faces;
+            predict_image_pil = Image.open(test_image_path).convert('L')
+            predict_image = np.array(predict_image_pil, 'uint8')
+            faces = faceCascade.detectMultiScale(predict_image)
 
-        for (x, y, w, h) in faces:
-            nbr_predicted, conf = recognizer.predict(predict_image[y: y + h, x: x + w])
+            print "# of faces: " + str(len(faces));
+            print faces;
 
-            ## nbr_actual = id2label[test_image_path[0:test_image_path.rfind('/')]];#int(os.path.split(image_path)[1].split(".")[0].replace("subject", ""))
+            for (x, y, w, h) in faces:
+                nbr_predicted, conf = recognizer.predict(predict_image[y: y + h, x: x + w])
 
-            print "recognized as " + label2id[nbr_predicted][label2id[nbr_predicted].rfind('/')+1:] + ", " + str(conf)
+                ## nbr_actual = id2label[test_image_path[0:test_image_path.rfind('/')]];#int(os.path.split(image_path)[1].split(".")[0].replace("subject", ""))
+
+                print "recognized as " + label2id[nbr_predicted][label2id[nbr_predicted].rfind('/')+1:] + ", " + str(conf)
+                print ""
+
+                ## if nbr_actual == nbr_predicted:
+                ##     print "{} is Correctly Recognized with confidence {}".format(nbr_actual, conf)
+                ## else:
+                ##     print "{} is Incorrect Recognized as {}".format(nbr_actual, nbr_predicted)
+
             print ""
 
-            ## if nbr_actual == nbr_predicted:
-            ##     print "{} is Correctly Recognized with confidence {}".format(nbr_actual, conf)
-            ## else:
-            ##     print "{} is Incorrect Recognized as {}".format(nbr_actual, nbr_predicted)
+        except IOError, e:
 
-        print ""
+            print "might be caused by no such file exception ..."
 
 if __name__ == "__main__":
     main(sys.argv)
