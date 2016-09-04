@@ -67,28 +67,28 @@ def getMaxLastModified(path):
     maxLastModified = 0.0
 
     image_paths = [os.path.join(path, f) for f in os.listdir(path)]
-    print image_paths;
-    print ""
+    #print image_paths;
+    #print ""
 
     for image_path in image_paths:
-        print image_path
-        print ""
+        #print image_path
+        #print ""
 
         user_images = [os.path.join(image_path, f) for f in os.listdir(image_path) if not f.startswith('test_')]
 
         for user_image_file_path in user_images:
-            print user_image_file_path
-            print "1) last modified: %s" % time.ctime(os.path.getmtime(user_image_file_path))
-            print "2) last modified: %s" % os.path.getmtime(user_image_file_path)
-            print "3) last modified: %s" % round(os.stat(user_image_file_path).st_mtime)
-            print ""
+            #print user_image_file_path
+            #print "1) last modified: %s" % time.ctime(os.path.getmtime(user_image_file_path))
+            #print "2) last modified: %s" % os.path.getmtime(user_image_file_path)
+            #print "3) last modified: %s" % round(os.stat(user_image_file_path).st_mtime)
+            #print ""
 
             last_modified_time = os.path.getmtime(user_image_file_path)#round(os.stat(user_image_file_path).st_mtime)
             if last_modified_time > maxLastModified:
                 maxLastModified = last_modified_time
 
-    print maxLastModified
-
+    #print maxLastModified
+    return maxLastModified
 
 
 
@@ -96,44 +96,43 @@ def main(argv):
     print cv2.__version__;
 
     face_dir_path = argv[1];
-
     test_image_path = argv[2];
 
-    images, labels = get_images_and_labels(face_dir_path)
-    #cv2.destroyAllWindows()
+    sofar_max_last_modified_time = 0
+    while True:
+        current_max_last_modified_time = getMaxLastModified(face_dir_path)
+        if current_max_last_modified_time > sofar_max_last_modified_time:
+            sofar_max_last_modified_time = current_max_last_modified_time
+            images, labels = get_images_and_labels(face_dir_path)
+            recognizer.train(images, np.array(labels))
 
-    getMaxLastModified(face_dir_path)
+        #image_path = "/var/nodes/easyrtc/node_modules/easyrtc/demos/latest/face/chuchi/face_cliu_20160901174419978.png"
 
-    # Perform the tranining
-    recognizer.train(images, np.array(labels))
-
-    #image_path = "/var/nodes/easyrtc/node_modules/easyrtc/demos/latest/face/chuchi/face_cliu_20160901174419978.png"
-
-    print ""
-    print "given " + test_image_path;
-    print ""
-
-    predict_image_pil = Image.open(test_image_path).convert('L')
-    predict_image = np.array(predict_image_pil, 'uint8')
-    faces = faceCascade.detectMultiScale(predict_image)
-
-    print "# of faces: " + str(len(faces));
-    print faces;
-
-    for (x, y, w, h) in faces:
-        nbr_predicted, conf = recognizer.predict(predict_image[y: y + h, x: x + w])
-
-        ## nbr_actual = id2label[test_image_path[0:test_image_path.rfind('/')]];#int(os.path.split(image_path)[1].split(".")[0].replace("subject", ""))
-
-        print "recognized as " + label2id[nbr_predicted][label2id[nbr_predicted].rfind('/')+1:] + ", " + str(conf)
+        print ""
+        print "given " + test_image_path;
         print ""
 
-        ## if nbr_actual == nbr_predicted:
-        ##     print "{} is Correctly Recognized with confidence {}".format(nbr_actual, conf)
-        ## else:
-        ##     print "{} is Incorrect Recognized as {}".format(nbr_actual, nbr_predicted)
+        predict_image_pil = Image.open(test_image_path).convert('L')
+        predict_image = np.array(predict_image_pil, 'uint8')
+        faces = faceCascade.detectMultiScale(predict_image)
 
-    print ""
+        print "# of faces: " + str(len(faces));
+        print faces;
+
+        for (x, y, w, h) in faces:
+            nbr_predicted, conf = recognizer.predict(predict_image[y: y + h, x: x + w])
+
+            ## nbr_actual = id2label[test_image_path[0:test_image_path.rfind('/')]];#int(os.path.split(image_path)[1].split(".")[0].replace("subject", ""))
+
+            print "recognized as " + label2id[nbr_predicted][label2id[nbr_predicted].rfind('/')+1:] + ", " + str(conf)
+            print ""
+
+            ## if nbr_actual == nbr_predicted:
+            ##     print "{} is Correctly Recognized with confidence {}".format(nbr_actual, conf)
+            ## else:
+            ##     print "{} is Incorrect Recognized as {}".format(nbr_actual, nbr_predicted)
+
+        print ""
 
 if __name__ == "__main__":
     main(sys.argv)
