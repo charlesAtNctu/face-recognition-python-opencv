@@ -137,7 +137,7 @@ def main(argv):
 
             print ""
 
-            os.rename(test_image_path, dest_dir_path)
+            os.rename(test_image_path, dest_dir_path+test_image_path[test_image_path.rfind('/')+1:])
 
 
         except IOError, e:
