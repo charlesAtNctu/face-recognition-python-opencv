@@ -142,7 +142,7 @@ def main(argv):
                         test_log = datetime.datetime.now().strftime('%Y%m%d%H%M%S%f') + ","+label2id[nbr_predicted][label2id[nbr_predicted].rfind('/')+1:] + "," + str(conf) + "," + str(x) + "," +  str(y) + "," +  str(w) + "," + str(h);
 
                         print "writing " + test_log + " to " + test_log_path
-                        with open(test_log_path, 'a') as file:
+                        with open(dest_dir_path+test_log_path[test_log_path.rfind('/')+1:], 'a') as file:
                             file.write(test_log+"\n")
 
                         #print ""
