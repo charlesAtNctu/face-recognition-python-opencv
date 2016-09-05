@@ -133,7 +133,7 @@ def main(argv):
 
                         ## nbr_actual = id2label[test_image_path[0:test_image_path.rfind('/')]];#int(os.path.split(image_path)[1].split(".")[0].replace("subject", ""))
 
-                        print label2id[nbr_predicted][label2id[nbr_predicted].rfind('/')+1:] + "," + str(conf) + "," + str(x) + "," +  str(y) + "," +  str(w) + "," + str(h);
+                        print time.strftime('%Y%m%d%H%M%S%f')+","+label2id[nbr_predicted][label2id[nbr_predicted].rfind('/')+1:] + "," + str(conf) + "," + str(x) + "," +  str(y) + "," +  str(w) + "," + str(h);
                         #print ""
 
                         ## if nbr_actual == nbr_predicted:
