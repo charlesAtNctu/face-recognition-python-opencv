@@ -137,8 +137,11 @@ def main(argv):
                         #t = datetime.datetime.now()
                         #s = t.strftime('%Y-%m-%d %H:%M:%S.%f')
                         #print time.strftime('%Y%m%d%H%M%S%f')+\
-                        print datetime.datetime.now().strftime('%Y%m%d%H%M%S%f') + ","+label2id[nbr_predicted][label2id[nbr_predicted].rfind('/')+1:] + "," + str(conf) + "," + str(x) + "," +  str(y) + "," +  str(w) + "," + str(h);
-                        print "writing log file, " + test_image_path[:test_image_path.rfind('.')]
+
+                        test_log_path = test_image_path[:test_image_path.rfind('.')+1]+"log"
+                        test_log = datetime.datetime.now().strftime('%Y%m%d%H%M%S%f') + ","+label2id[nbr_predicted][label2id[nbr_predicted].rfind('/')+1:] + "," + str(conf) + "," + str(x) + "," +  str(y) + "," +  str(w) + "," + str(h);
+
+                        print "writing " + test_log + " to " + test_log_path
                         #print ""
 
                         ## if nbr_actual == nbr_predicted:
