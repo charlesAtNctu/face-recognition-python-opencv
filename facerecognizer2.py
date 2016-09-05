@@ -123,26 +123,27 @@ def main(argv):
                 predict_image = np.array(predict_image_pil, 'uint8')
                 faces = faceCascade.detectMultiScale(predict_image)
 
-                print "# of faces: " + str(len(faces));
-                print faces;
+                if test_image_path.endswith('_localRecognize.png') or test_image_path.endswith('_remoteRecognize.png'):
 
-                for (x, y, w, h) in faces:
-                    nbr_predicted, conf = recognizer.predict(predict_image[y: y + h, x: x + w])
+                    # print "# of faces: " + str(len(faces));
+                    # print faces;
 
-                    ## nbr_actual = id2label[test_image_path[0:test_image_path.rfind('/')]];#int(os.path.split(image_path)[1].split(".")[0].replace("subject", ""))
+                    for (x, y, w, h) in faces:
+                        nbr_predicted, conf = recognizer.predict(predict_image[y: y + h, x: x + w])
 
-                    print "recognized as " + label2id[nbr_predicted][label2id[nbr_predicted].rfind('/')+1:] + ", " + str(conf)
-                    print ""
+                        ## nbr_actual = id2label[test_image_path[0:test_image_path.rfind('/')]];#int(os.path.split(image_path)[1].split(".")[0].replace("subject", ""))
 
-                    ## if nbr_actual == nbr_predicted:
-                    ##     print "{} is Correctly Recognized with confidence {}".format(nbr_actual, conf)
-                    ## else:
-                    ##     print "{} is Incorrect Recognized as {}".format(nbr_actual, nbr_predicted)
+                        print label2id[nbr_predicted][label2id[nbr_predicted].rfind('/')+1:] + "," + str(conf) + "," + x + "," +  y + "," +  w + "," + h;
+                        #print ""
+
+                        ## if nbr_actual == nbr_predicted:
+                        ##     print "{} is Correctly Recognized with confidence {}".format(nbr_actual, conf)
+                        ## else:
+                        ##     print "{} is Incorrect Recognized as {}".format(nbr_actual, nbr_predicted)
 
                 print ""
 
                 os.rename(test_image_path, dest_dir_path+test_image_path[test_image_path.rfind('/')+1:])
-
 
         except IOError, e:
             dummy = 0
