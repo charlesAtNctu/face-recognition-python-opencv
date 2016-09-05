@@ -124,6 +124,7 @@ def main(argv):
                 faces = faceCascade.detectMultiScale(predict_image)
 
                 if test_image_path.endswith('_localRecognize.png') or test_image_path.endswith('_remoteRecognize.png'):
+                    print "doing face recognition ..."
 
                     # print "# of faces: " + str(len(faces));
                     # print faces;
