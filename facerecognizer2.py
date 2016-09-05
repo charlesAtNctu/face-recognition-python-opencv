@@ -143,8 +143,8 @@ def main(argv):
 
                         print "writing " + test_log + " to " + test_log_path
                         with open(test_log_path, 'a') as file:
-                            file.write(test_log)
-                            
+                            file.write(test_log+"\n")
+
                         #print ""
 
                         ## if nbr_actual == nbr_predicted:
