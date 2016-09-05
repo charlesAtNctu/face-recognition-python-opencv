@@ -74,7 +74,7 @@ def getMaxLastModified(path):
         #print image_path
         #print ""
 
-        user_images = [os.path.join(image_path, f) for f in os.listdir(image_path) if not f.startswith('test_')]
+        user_images = [os.path.join(image_path, f) for f in os.listdir(image_path) if not f.startswith('test_') and not f.endswith('.png')]
 
         for user_image_file_path in user_images:
             #print user_image_file_path
