@@ -141,9 +141,10 @@ def main(argv):
                         ## else:
                         ##     print "{} is Incorrect Recognized as {}".format(nbr_actual, nbr_predicted)
 
-                print ""
 
                 os.rename(test_image_path, dest_dir_path+test_image_path[test_image_path.rfind('/')+1:])
+                print "moving from " + test_image_path + " to " + dest_dir_path+test_image_path[test_image_path.rfind('/')+1:]
+                print ""
 
         except IOError, e:
             dummy = 0
