@@ -1,6 +1,6 @@
 
 
-import os.path, time
+import os.path, time, datetime
 import cv2, os, sys
 import numpy as np
 from PIL import Image
@@ -133,7 +133,10 @@ def main(argv):
 
                         ## nbr_actual = id2label[test_image_path[0:test_image_path.rfind('/')]];#int(os.path.split(image_path)[1].split(".")[0].replace("subject", ""))
 
-                        print time.strftime('%Y%m%d%H%M%S%f')+","+label2id[nbr_predicted][label2id[nbr_predicted].rfind('/')+1:] + "," + str(conf) + "," + str(x) + "," +  str(y) + "," +  str(w) + "," + str(h);
+                        #t = datetime.datetime.now()
+                        #s = t.strftime('%Y-%m-%d %H:%M:%S.%f')
+                        #print time.strftime('%Y%m%d%H%M%S%f')+\
+                        print datetime.datetime.now().strftime('%Y%m%d%H%M%S%f') + ","+label2id[nbr_predicted][label2id[nbr_predicted].rfind('/')+1:] + "," + str(conf) + "," + str(x) + "," +  str(y) + "," +  str(w) + "," + str(h);
                         #print ""
 
                         ## if nbr_actual == nbr_predicted:
