@@ -96,7 +96,7 @@ def main(argv):
     print cv2.__version__;
 
     face_dir_path = argv[1];
-    test_image_path = argv[2];
+    test_image_dir_path = argv[2];
     dest_dir_path = argv[3];
 
     sofar_max_last_modified_time = 0
@@ -115,39 +115,48 @@ def main(argv):
 
         try:
 
-            predict_image_pil = Image.open(test_image_path).convert('L')
-            predict_image = np.array(predict_image_pil, 'uint8')
-            faces = faceCascade.detectMultiScale(predict_image)
+            test_image_paths = [os.path.join(test_image_dir_path, f) for f in os.listdir(test_image_dir_path) if f.endswith('Recognize.png')]
+            for test_image_path in test_image_paths:
+                print "processing " + test_image_path;
 
-            print "# of faces: " + str(len(faces));
-            print faces;
+                predict_image_pil = Image.open(test_image_path).convert('L')
+                predict_image = np.array(predict_image_pil, 'uint8')
+                faces = faceCascade.detectMultiScale(predict_image)
 
-            for (x, y, w, h) in faces:
-                nbr_predicted, conf = recognizer.predict(predict_image[y: y + h, x: x + w])
+                print "# of faces: " + str(len(faces));
+                print faces;
 
-                ## nbr_actual = id2label[test_image_path[0:test_image_path.rfind('/')]];#int(os.path.split(image_path)[1].split(".")[0].replace("subject", ""))
+                for (x, y, w, h) in faces:
+                    nbr_predicted, conf = recognizer.predict(predict_image[y: y + h, x: x + w])
 
-                print "recognized as " + label2id[nbr_predicted][label2id[nbr_predicted].rfind('/')+1:] + ", " + str(conf)
+                    ## nbr_actual = id2label[test_image_path[0:test_image_path.rfind('/')]];#int(os.path.split(image_path)[1].split(".")[0].replace("subject", ""))
+
+                    print "recognized as " + label2id[nbr_predicted][label2id[nbr_predicted].rfind('/')+1:] + ", " + str(conf)
+                    print ""
+
+                    ## if nbr_actual == nbr_predicted:
+                    ##     print "{} is Correctly Recognized with confidence {}".format(nbr_actual, conf)
+                    ## else:
+                    ##     print "{} is Incorrect Recognized as {}".format(nbr_actual, nbr_predicted)
+
                 print ""
 
-                ## if nbr_actual == nbr_predicted:
-                ##     print "{} is Correctly Recognized with confidence {}".format(nbr_actual, conf)
-                ## else:
-                ##     print "{} is Incorrect Recognized as {}".format(nbr_actual, nbr_predicted)
-
-            print ""
-
-            os.rename(test_image_path, dest_dir_path+test_image_path[test_image_path.rfind('/')+1:])
+                os.rename(test_image_path, dest_dir_path+test_image_path[test_image_path.rfind('/')+1:])
 
 
         except IOError, e:
             dummy = 0
-            # print "might be caused by no such file exception ..."
+            # print "might be caused by no such file exception ..." # continous print ... since commented it out ...
 
 if __name__ == "__main__":
     main(sys.argv)
 
 # python facerecognizer.py /var/nodes/easyrtc/node_modules/easyrtc/demos/latest/face/
 
+#                                                                       1                                   2                                                                                        3
+# python facerecognizer2.py /var/nodes/easyrtc/node_modules/easyrtc/demos/latest/face/ /var/nodes/easyrtc/node_modules/easyrtc/server_example/uploads/20160831174119477_localRecognize.png /var/nodes/easyrtc/node_modules/easyrtc/demos/latest/
+# add two table cell for log
 
-
+#                                                                       1                                   2                                                                                        3
+# python facerecognizer2.py /var/nodes/easyrtc/node_modules/easyrtc/demos/latest/face/ /var/nodes/easyrtc/node_modules/easyrtc/server_example/uploads/ /var/nodes/easyrtc/node_modules/easyrtc/demos/latest/
+# add two table cell for log
