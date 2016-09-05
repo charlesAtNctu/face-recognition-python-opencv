@@ -164,6 +164,36 @@ def main(argv):
 if __name__ == "__main__":
     main(sys.argv)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # python facerecognizer.py /var/nodes/easyrtc/node_modules/easyrtc/demos/latest/face/
 
 #                                                                       1                                   2                                                                                        3
