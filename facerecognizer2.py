@@ -139,10 +139,16 @@ def main(argv):
                         #print time.strftime('%Y%m%d%H%M%S%f')+\
 
                         test_log_path = test_image_path[:test_image_path.rfind('.')+1]+"log"
+                        test_latest_path = test_image_path[:test_image_path.rfind('.')+1]+"latest"
+
                         test_log = datetime.datetime.now().strftime('%Y%m%d%H%M%S%f') + ","+label2id[nbr_predicted][label2id[nbr_predicted].rfind('/')+1:] + "," + str(conf) + "," + str(x) + "," +  str(y) + "," +  str(w) + "," + str(h);
 
                         print "writing " + test_log + " to " + test_log_path
+                        print "writing " + test_log + " to " + test_latest_path
+
                         with open(dest_dir_path+test_log_path[test_log_path.rfind('/')+1:], 'a') as file:
+                            file.write(test_log+"\n")
+                        with open(dest_dir_path+test_latest_path[test_latest_path.rfind('/')+1:], 'w') as file:
                             file.write(test_log+"\n")
 
                         #print ""
