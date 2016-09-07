@@ -62,11 +62,11 @@ def get_images_and_labels(path):
     return images, labels
 
 
-def getMaxLastModified(path):
+def getMaxLastModified(facedirpath):
 
-    maxLastModified = 0.0
+    maxLastModified = os.path.getmtime(facedirpath)
 
-    image_paths = [os.path.join(path, f) for f in os.listdir(path) if not f.endswith('.png')]
+    image_paths = [os.path.join(facedirpath, f) for f in os.listdir(facedirpath) if not f.endswith('.png')]
     #print image_paths;
     #print ""
 
