@@ -129,6 +129,20 @@ def main(argv):
                     # print "# of faces: " + str(len(faces));
                     # print faces;
 
+                    test_log_path = test_image_path[:test_image_path.rfind('.')+1]+"log"
+                    test_latest_path = test_image_path[:test_image_path.rfind('.')+1]+"latest"
+                    if len(faces) < 1:
+                        with open(dest_dir_path+test_log_path[test_log_path.rfind('/')+1:], 'a') as file:
+                            file.write(datetime.datetime.now().strftime('%Y%m%d%H%M%S%f') + ","
+                                                                                            "No Face Detected,0.0"
+                                                                                            ","
+                                                                                            "0,0,0,0\n")
+                        with open(dest_dir_path+test_latest_path[test_latest_path.rfind('/')+1:], 'w') as file:
+                            file.write(datetime.datetime.now().strftime('%Y%m%d%H%M%S%f') + ","
+                                                                                            "No Face Detected,0.0"
+                                                                                            ","
+                                                                                            "0,0,0,0\n")
+
                     for (x, y, w, h) in faces:
                         nbr_predicted, conf = recognizer.predict(predict_image[y: y + h, x: x + w])
 
@@ -138,8 +152,8 @@ def main(argv):
                         #s = t.strftime('%Y-%m-%d %H:%M:%S.%f')
                         #print time.strftime('%Y%m%d%H%M%S%f')+\
 
-                        test_log_path = test_image_path[:test_image_path.rfind('.')+1]+"log"
-                        test_latest_path = test_image_path[:test_image_path.rfind('.')+1]+"latest"
+                        #test_log_path = test_image_path[:test_image_path.rfind('.')+1]+"log"
+                        #test_latest_path = test_image_path[:test_image_path.rfind('.')+1]+"latest"
 
                         test_log = datetime.datetime.now().strftime('%Y%m%d%H%M%S%f') + ","+label2id[nbr_predicted][label2id[nbr_predicted].rfind('/')+1:] + "," + str(conf) + "," + str(x) + "," +  str(y) + "," +  str(w) + "," + str(h);
 
