@@ -26,7 +26,7 @@
       <file leaf-file-name="facerecognizer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/facerecognizer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1530">
+            <state relative-caret-position="1500">
               <caret line="102" column="36" selection-start-line="0" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
               <folding>
                 <element signature="e#3#22#0" expanded="true" />
@@ -38,8 +38,8 @@
       <file leaf-file-name="facerecognizer2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/facerecognizer2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="172" column="105" selection-start-line="172" selection-start-column="105" selection-end-line="172" selection-end-column="105" />
+            <state relative-caret-position="390">
+              <caret line="106" column="70" selection-start-line="106" selection-start-column="70" selection-end-line="106" selection-end-column="70" />
               <folding>
                 <element signature="e#2#32#0" expanded="true" />
               </folding>
@@ -67,7 +67,7 @@
       <file leaf-file-name="face_recognizer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/face_recognizer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="240">
               <caret line="18" column="93" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="93" />
               <folding>
                 <element signature="e#122#136#0" expanded="true" />
@@ -789,7 +789,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/facerecognizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
+        <state relative-caret-position="1500">
           <caret line="102" column="36" selection-start-line="0" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
           <folding>
             <element signature="e#3#22#0" expanded="true" />
@@ -799,8 +799,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/facerecognizer2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="172" column="105" selection-start-line="172" selection-start-column="105" selection-end-line="172" selection-end-column="105" />
+        <state relative-caret-position="390">
+          <caret line="106" column="70" selection-start-line="106" selection-start-column="70" selection-end-line="106" selection-end-column="70" />
           <folding>
             <element signature="e#2#32#0" expanded="true" />
           </folding>
@@ -822,7 +822,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/face_recognizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="240">
           <caret line="18" column="93" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="93" />
           <folding>
             <element signature="e#122#136#0" expanded="true" />

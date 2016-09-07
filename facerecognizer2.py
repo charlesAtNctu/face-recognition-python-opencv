@@ -103,6 +103,9 @@ def main(argv):
     while True:
         current_max_last_modified_time = getMaxLastModified(face_dir_path)
         if current_max_last_modified_time > sofar_max_last_modified_time:
+
+            recognizer = cv2.face.createLBPHFaceRecognizer();# reset ?
+
             sofar_max_last_modified_time = current_max_last_modified_time
             images, labels = get_images_and_labels(face_dir_path)
             recognizer.train(images, np.array(labels))
