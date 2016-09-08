@@ -37,7 +37,7 @@ def get_images_and_labels(facedirectorypath):
 
         print userdirectorypath + " has label, " + str(label);
         # user_images = os.listdir(image_path)
-        user_images = [os.path.join(userdirectorypath, f) for f in os.listdir(userdirectorypath) if not f.startswith('test_') and not f.endswith('.png')]
+        user_images = [os.path.join(userdirectorypath, f) for f in os.listdir(userdirectorypath) if not f.startswith('test_')]
 
         for user_image in user_images:
             #user_image_path = image_path + "/" + user_image;
