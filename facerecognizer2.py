@@ -89,11 +89,11 @@ def getMaxLastModified(facedirpath):
                     last_modified_time = os.path.getmtime(user_image_file_path)#round(os.stat(user_image_file_path).st_mtime)
                     if last_modified_time > maxLastModified:
                         maxLastModified = last_modified_time
-                except IOError, e:
-                    print "user file:" + e;
+                except OSError as e:
+                    print "user file not found:" + e;
 
-        except IOError, e:
-            print "user folder:" + e;
+        except OSError as e:
+            print "user folder not found:" + e;
 
     #print maxLastModified
     return maxLastModified
