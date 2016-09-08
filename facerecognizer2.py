@@ -85,12 +85,15 @@ def getMaxLastModified(facedirpath):
                 #print "3) last modified: %s" % round(os.stat(user_image_file_path).st_mtime)
                 #print ""
 
-                last_modified_time = os.path.getmtime(user_image_file_path)#round(os.stat(user_image_file_path).st_mtime)
-                if last_modified_time > maxLastModified:
-                    maxLastModified = last_modified_time
+                try:
+                    last_modified_time = os.path.getmtime(user_image_file_path)#round(os.stat(user_image_file_path).st_mtime)
+                    if last_modified_time > maxLastModified:
+                        maxLastModified = last_modified_time
+                except IOError, e:
+                    print "user file:" + e;
 
         except IOError, e:
-            print "" + e;
+            print "user folder:" + e;
 
     #print maxLastModified
     return maxLastModified
