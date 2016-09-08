@@ -112,10 +112,20 @@ def main(argv):
         current_max_last_modified_time = getMaxLastModified(face_dir_path)
         if current_max_last_modified_time > sofar_max_last_modified_time:
 
-            recognizer = cv2.face.createLBPHFaceRecognizer();# reset ?
+
+
+
+            images, labels = get_images_and_labels(face_dir_path)
+
+            if len(images) <= 0:
+                print "NO IMAGES TO TRAIN ..."
+                continue;
+            if len(labels) <= 0:
+                print "SHOULD NEVER SEE ME ..."
+                continue;
 
             sofar_max_last_modified_time = current_max_last_modified_time
-            images, labels = get_images_and_labels(face_dir_path)
+            recognizer = cv2.face.createLBPHFaceRecognizer();# reset ?
             recognizer.train(images, np.array(labels))
 
         #image_path = "/var/nodes/easyrtc/node_modules/easyrtc/demos/latest/face/chuchi/face_cliu_20160901174419978.png"
