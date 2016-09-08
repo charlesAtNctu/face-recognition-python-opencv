@@ -21,7 +21,7 @@ def get_images_and_labels(facedirectorypath):
 
 
 
-    userdirectorypaths = [os.path.join(facedirectorypath, f) for f in os.listdir(facedirectorypath)]# if os.path.isdir(f)]
+    userdirectorypaths = [os.path.join(facedirectorypath, f) for f in os.listdir(facedirectorypath) if not f.endswith('.png')]
     print userdirectorypaths;# user dir abs path here !!!
     print ""
 
