@@ -66,26 +66,31 @@ def getMaxLastModified(facedirpath):
 
     maxLastModified = os.path.getmtime(facedirpath)
 
-    image_paths = [os.path.join(facedirpath, f) for f in os.listdir(facedirpath) if not f.endswith('.png')]
+    user_directory_paths = [os.path.join(facedirpath, f) for f in os.listdir(facedirpath) if not f.endswith('.png')]
     #print image_paths;
     #print ""
 
-    for image_path in image_paths:
+    for user_directory_path in user_directory_paths:
         #print image_path
         #print ""
 
-        user_images = [os.path.join(image_path, f) for f in os.listdir(image_path) if not f.startswith('test_')]
+        try:
 
-        for user_image_file_path in user_images:
-            #print user_image_file_path
-            #print "1) last modified: %s" % time.ctime(os.path.getmtime(user_image_file_path))
-            #print "2) last modified: %s" % os.path.getmtime(user_image_file_path)
-            #print "3) last modified: %s" % round(os.stat(user_image_file_path).st_mtime)
-            #print ""
+            user_images = [os.path.join(user_directory_path, f) for f in os.listdir(user_directory_path) if not f.startswith('test_')]
 
-            last_modified_time = os.path.getmtime(user_image_file_path)#round(os.stat(user_image_file_path).st_mtime)
-            if last_modified_time > maxLastModified:
-                maxLastModified = last_modified_time
+            for user_image_file_path in user_images:
+                #print user_image_file_path
+                #print "1) last modified: %s" % time.ctime(os.path.getmtime(user_image_file_path))
+                #print "2) last modified: %s" % os.path.getmtime(user_image_file_path)
+                #print "3) last modified: %s" % round(os.stat(user_image_file_path).st_mtime)
+                #print ""
+
+                last_modified_time = os.path.getmtime(user_image_file_path)#round(os.stat(user_image_file_path).st_mtime)
+                if last_modified_time > maxLastModified:
+                    maxLastModified = last_modified_time
+
+        except IOError, e:
+            print "" + e;
 
     #print maxLastModified
     return maxLastModified
