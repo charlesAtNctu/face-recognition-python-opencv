@@ -17,27 +17,27 @@ recognizer = cv2.face.createLBPHFaceRecognizer();
 label2id = {}
 id2label = {}
 
-def get_images_and_labels(path):
+def get_images_and_labels(facedirectorypath):
 
 
 
-    image_paths = [os.path.join(path, f) for f in os.listdir(path)]
-    print image_paths;# user dir abs path here !!!
+    userdirectorypaths = [os.path.join(facedirectorypath, f) for f in os.listdir(facedirectorypath)]
+    print userdirectorypaths;# user dir abs path here !!!
     print ""
 
     images = []
     labels = []
 
     label = 0;
-    for image_path in image_paths:
+    for userdirectorypath in userdirectorypaths:
 
-        label2id[label] = image_path;
-        id2label[image_path] = label;
+        label2id[label] = userdirectorypath;
+        id2label[userdirectorypath] = label;
         counter = 0;
 
-        print image_path + " has label, " + str(label);
+        print userdirectorypath + " has label, " + str(label);
         # user_images = os.listdir(image_path)
-        user_images = [os.path.join(image_path, f) for f in os.listdir(image_path) if not f.startswith('test_')]
+        user_images = [os.path.join(userdirectorypath, f) for f in os.listdir(userdirectorypath) if not f.startswith('test_') and not f.endswith('.png')]
 
         for user_image in user_images:
             #user_image_path = image_path + "/" + user_image;
