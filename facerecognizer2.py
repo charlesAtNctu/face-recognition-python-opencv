@@ -155,12 +155,12 @@ def main(argv):
                     if len(faces) < 1:
                         with open(dest_dir_path+test_log_path[test_log_path.rfind('/')+1:], 'a') as file:
                             file.write(datetime.datetime.now().strftime('%Y%m%d%H%M%S%f') + ","
-                                                                                            "No Face Detected,0.0"
+                                                                                            "No_Face_Detected,0.0"
                                                                                             ","
                                                                                             "0,0,0,0\n")
                         with open(dest_dir_path+test_latest_path[test_latest_path.rfind('/')+1:], 'w') as file:
                             file.write(datetime.datetime.now().strftime('%Y%m%d%H%M%S%f') + ","
-                                                                                            "No Face Detected,0.0"
+                                                                                            "No_Face_Detected,0.0"
                                                                                             ","
                                                                                             "0,0,0,0\n")
 
