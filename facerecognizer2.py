@@ -90,10 +90,10 @@ def getMaxLastModified(facedirpath):
                     if last_modified_time > maxLastModified:
                         maxLastModified = last_modified_time
                 except OSError as e:
-                    print "user file not found:" + e;
+                    print "user file not found:" + str(e);
 
         except OSError as e:
-            print "user folder not found:" + e;
+            print "user folder not found:" + str(e);
 
     #print maxLastModified
     return maxLastModified
@@ -118,7 +118,7 @@ def main(argv):
             images, labels = get_images_and_labels(face_dir_path)
 
             if len(images) <= 0:
-                print "NO IMAGES TO TRAIN ..."
+                print "NO IMAGES TO TRAIN AT ALL ..."
                 continue;
             if len(labels) <= 0:
                 print "SHOULD NEVER SEE ME ..."
