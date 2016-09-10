@@ -45,6 +45,7 @@ def main(argv):
                             e2c_tgt_cookieid  = e2c_mapping[e2c_1st_underscore_idx+1:e2c_2nd_underscore_idx];
                             e2c_tgt_easyrtcid = e2c_mapping[e2c_2nd_underscore_idx+1:e2c_dot_idx]
 
+                            print e2e_tgt_easyrtcid + " == " + e2c_tgt_easyrtcid
                             if e2e_tgt_easyrtcid == e2c_tgt_easyrtcid:
 
                                 c2c_src_tgt_mapping = "c2c_" + c2e_src_cookieid + "_" + e2c_tgt_cookieid + ".mapping"
