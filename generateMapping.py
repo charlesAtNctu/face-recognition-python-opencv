@@ -37,7 +37,7 @@ def main(argv):
                     for e2c_mapping in e2c_mappings:
                         if e2c_mapping.startswith("e2c_") and e2c_mapping.endswith(".mapping"):
 
-                            print "\t\t\te2c" + e2c_mapping
+                            print "\t\t\te2c: " + e2c_mapping
                             e2c_1st_underscore_idx = e2c_mapping.find("_");
                             e2c_2nd_underscore_idx = e2c_mapping.rfind("_");
                             e2c_dot_idx            = e2c_mapping.rfind(".");
