@@ -11,6 +11,7 @@ def main(argv):
     for c2e_mapping in c2e_mappings:
        if c2e_mapping.startswith("c2e_") and c2e_mapping.endswith(".mapping"):
 
+          print c2e_mapping;
           c2e_1st_underscore_idx = c2e_mapping.find("_");
           c2e_2nd_underscore_idx = c2e_mapping.rfind("_");
           c2e_dot_idx            = c2e_mapping.rfind(".");
@@ -21,6 +22,7 @@ def main(argv):
           e2e_mappings = os.listdir(mapping_dir)
           for e2e_mapping in e2e_mappings:
              if e2e_mapping.startswith("e2e_") and e2e_mapping.endswith(".mapping"):
+                 print e2e_mapping
 
                  e2e_1st_underscore_idx = e2e_mapping.find("_");
                  e2e_2nd_underscore_idx = e2e_mapping.rfind("_");
@@ -34,6 +36,7 @@ def main(argv):
                     e2c_mappings = os.listdir(mapping_dir)
                     for e2c_mapping in e2c_mappings:
                         if e2c_mapping.startswith("e2c_") and e2c_mapping.endswith(".mapping"):
+                            print e2c_mapping
 
                             e2c_1st_underscore_idx = e2c_mapping.find("_");
                             e2c_2nd_underscore_idx = e2c_mapping.rfind("_");
