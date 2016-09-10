@@ -5,52 +5,55 @@ import os, sys
 def main(argv):
 
     mapping_dir = argv[1];
-
     print 'mapping directory  : ', mapping_dir;
 
-    c2e_mappings = os.listdir(mapping_dir)# todo: create c2e and e2c ...
+    c2e_mappings = os.listdir(mapping_dir)
     for c2e_mapping in c2e_mappings:
        if c2e_mapping.startswith("c2e_") and c2e_mapping.endswith(".mapping"):
 
-          first_underscore_idx= c2e_mapping.find("_");
-          second_underscore_idx = c2e_mapping.rfind("_");
-          dot_idx = c2e_mapping.rfind(".");
+          c2e_1st_underscore_idx = c2e_mapping.find("_");
+          c2e_2nd_underscore_idx = c2e_mapping.rfind("_");
+          c2e_dot_idx            = c2e_mapping.rfind(".");
 
-          cookieid = c2e_mapping[first_underscore_idx+1:second_underscore_idx];
-          easyrtcid = c2e_mapping[second_underscore_idx+1:dot_idx]
+          c2e_src_cookieid  = c2e_mapping[c2e_1st_underscore_idx+1:c2e_2nd_underscore_idx];
+          c2e_src_easyrtcid = c2e_mapping[c2e_2nd_underscore_idx+1:c2e_dot_idx]
 
           e2e_mappings = os.listdir(mapping_dir)
           for e2e_mapping in e2e_mappings:
              if e2e_mapping.startswith("e2e_") and e2e_mapping.endswith(".mapping"):
 
-                 first_underscore_idx2 = e2e_mapping.find("_");
-                 second_underscore_idx2 = e2e_mapping.rfind("_");
-                 dot_idx2 = e2e_mapping.rfind(".");
+                 e2e_1st_underscore_idx = e2e_mapping.find("_");
+                 e2e_2nd_underscore_idx = e2e_mapping.rfind("_");
+                 e2e_dot_idx            = e2e_mapping.rfind(".");
 
-                 src_easyrtcid = e2e_mapping[first_underscore_idx2+1:second_underscore_idx2];
-                 tgt_easyrtcid = e2e_mapping[second_underscore_idx2+1:dot_idx2]
+                 e2e_src_easyrtcid = e2e_mapping[e2e_1st_underscore_idx+1:e2e_2nd_underscore_idx];
+                 e2e_tgt_easyrtcid = e2e_mapping[e2e_2nd_underscore_idx+1:e2e_dot_idx];
 
-                 if easyrtcid == tgt_easyrtcid:
-                    tgt_easyrtcid = src_easyrtcid
+                 if c2e_src_easyrtcid == e2e_src_easyrtcid:
 
-                 e2c_mappings = os.listdir(mapping_dir)
-                 for e2c_mapping in e2c_mappings:
-                    if e2c_mapping.startswith("e2c_") and e2c_mapping.endswith(".mapping"):
+                    e2c_mappings = os.listdir(mapping_dir)
+                    for e2c_mapping in e2c_mappings:
+                        if e2c_mapping.startswith("e2c_") and e2c_mapping.endswith(".mapping"):
 
-                        first_underscore_idx3 = e2c_mapping.find("_");
-                        second_underscore_idx3 = e2c_mapping.rfind("_");
-                        dot_idx3 = e2c_mapping.rfind(".");
+                            e2c_1st_underscore_idx = e2c_mapping.find("_");
+                            e2c_2nd_underscore_idx = e2c_mapping.rfind("_");
+                            e2c_dot_idx            = e2c_mapping.rfind(".");
 
-                        tgt_easyrtcid2 = e2c_mapping[first_underscore_idx3 + 1:second_underscore_idx3];
-                        cookieid2 = e2c_mapping[second_underscore_idx3+1:dot_idx3]
+                            e2c_tgt_cookieid  = e2c_mapping[e2c_1st_underscore_idx+1:e2c_2nd_underscore_idx];
+                            e2c_tgt_easyrtcid = e2c_mapping[e2c_2nd_underscore_idx+1:e2c_dot_idx]
 
-                        if tgt_easyrtcid == tgt_easyrtcid2:
+                            if e2e_tgt_easyrtcid == e2c_tgt_easyrtcid:
 
-                            c2c_mapping  = "c2c_" + cookieid  + "_" + cookieid2
-                            c2c_mapping2 = "c2c_" + cookieid2 + "_" + cookieid
+                                c2c_src_tgt_mapping = "c2c_" + c2e_src_cookieid + "_" + e2c_tgt_cookieid + ".mapping"
+                                c2c_tgt_src_mapping = "c2c_" + e2c_tgt_cookieid + "_" + c2e_src_cookieid + ".mapping"
 
-                            # todo: create a mapping file now if not exist ... and set false value ...
+                                createMappingFile(mapping_dir + c2c_src_tgt_mapping)
+                                createMappingFile(mapping_dir + c2c_tgt_src_mapping)
 
+def createMappingFile(c2c_mapping_file_path):
+    if not os.path.exists(c2c_mapping_file_path):
+        with open(c2c_mapping_file_path, 'w') as f:
+            f.write("false")
 
 if __name__ == "__main__":
     main(sys.argv)
