@@ -13,7 +13,7 @@ def main(argv):
     count = 0
     while (count < 60):
         count = count + 1
-        print "" + count "\t: copying " + copying_dir+src_file + " " + copying_dir+tgt_file
+        print "" + count + "\t: copying " + copying_dir+src_file + " " + copying_dir+tgt_file
         copyfile(copying_dir+src_file, copying_dir+tgt_file)
         time.sleep(1)
 
