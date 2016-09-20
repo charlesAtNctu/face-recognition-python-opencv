@@ -11,7 +11,7 @@ def main(argv):
     tgt_file = argv[3];
 
     count = 0
-    while (count < 60):
+    while (count < 30):
         count = count + 1
         print "" + str(count) + "\t: copying " + copying_dir+src_file + " " + copying_dir+tgt_file
         copyfile(copying_dir+src_file, copying_dir+tgt_file)
