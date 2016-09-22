@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import os, sys
+import os.path, sys
 import time
 from shutil import copyfile
 
@@ -14,7 +14,12 @@ def main(argv):
     while (count < 30):
         count = count + 1
         print "" + str(count) + "\t: copying " + copying_dir+src_file + " " + copying_dir+tgt_file
-        copyfile(copying_dir+src_file, copying_dir+tgt_file)
+
+        if os.path.isfile(copying_dir+src_file):
+            print "" + copying_dir+src_file + " does    exist ..."
+            copyfile(copying_dir+src_file, copying_dir+tgt_file)
+        else:
+            print "" + copying_dir+src_file + " doesn't exist ..."
         time.sleep(1)
 
 if __name__ == "__main__":
