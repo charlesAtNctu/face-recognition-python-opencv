@@ -5,6 +5,8 @@ import os, sys
 def main(argv):
 
     mapping_dir = argv[1];
+    to_dest = argv[2];
+
     print 'mapping directory  : ', mapping_dir;
 
     c2e_mappings = os.listdir(mapping_dir)
@@ -57,10 +59,20 @@ def main(argv):
                                 createMappingFile(mapping_dir + c2c_src_tgt_mapping)
                                 createMappingFile(mapping_dir + c2c_tgt_src_mapping)
 
+                                c2c_src_mapping = "c2c_" + c2e_src_cookieid + ".mapping"
+
+                                createMappingFile(mapping_dir + c2c_src_mapping, to_dest)
+
+
 def createMappingFile(c2c_mapping_file_path):
     if not os.path.exists(c2c_mapping_file_path):
         with open(c2c_mapping_file_path, 'w') as f:
             f.write("false")
+
+def createMappingFile(c2c_mapping_file_path, contents):
+    if not os.path.exists(c2c_mapping_file_path):
+        with open(c2c_mapping_file_path, 'w') as f:
+            f.write(contents)
 
 if __name__ == "__main__":
     main(sys.argv)
