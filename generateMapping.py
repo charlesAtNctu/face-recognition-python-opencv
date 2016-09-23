@@ -56,20 +56,20 @@ def main(argv):
                                 c2c_tgt_src_mapping = "c2c_" + e2c_tgt_cookieid + "_" + c2e_src_cookieid + ".mapping"
                                 print "\t\t\t\tc2c(2): " + c2c_tgt_src_mapping
 
-                                createMappingFile(mapping_dir + c2c_src_tgt_mapping)
-                                createMappingFile(mapping_dir + c2c_tgt_src_mapping)
+                                createMappingFile2(mapping_dir + c2c_src_tgt_mapping, "false")
+                                createMappingFile2(mapping_dir + c2c_tgt_src_mapping, "false")
 
                                 c2c_src_mapping = "c2c_" + c2e_src_cookieid + ".mapping"
 
-                                createMappingFile(mapping_dir + c2c_src_mapping, to_dest)
+                                createMappingFile2(mapping_dir + c2c_src_mapping, to_dest)
 
 
-def createMappingFile(c2c_mapping_file_path):
-    if not os.path.exists(c2c_mapping_file_path):
-        with open(c2c_mapping_file_path, 'w') as f:
-            f.write("false")
+# def createMappingFile(c2c_mapping_file_path):
+#     if not os.path.exists(c2c_mapping_file_path):
+#         with open(c2c_mapping_file_path, 'w') as f:
+#             f.write("false")
 
-def createMappingFile(c2c_mapping_file_path, contents):
+def createMappingFile2(c2c_mapping_file_path, contents):
     if not os.path.exists(c2c_mapping_file_path):
         with open(c2c_mapping_file_path, 'w') as f:
             f.write(contents)
