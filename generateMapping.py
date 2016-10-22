@@ -6,6 +6,7 @@ def main(argv):
 
     mapping_dir = argv[1];
     to_dest = argv[2];
+    to_dest2 = argv[3];
 
     print 'mapping directory  : ', mapping_dir;
 
@@ -61,7 +62,7 @@ def main(argv):
 
                                 c2c_src_mapping = "c2c_" + c2e_src_cookieid + ".mapping"
 
-                                createMappingFile2(mapping_dir + c2c_src_mapping, to_dest)
+                                createMappingFile2(mapping_dir + c2c_src_mapping, to_dest+","+to_dest2)
 
 
 # def createMappingFile(c2c_mapping_file_path):
