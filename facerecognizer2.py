@@ -145,22 +145,22 @@ def main(argv):
                 faces = faceCascade.detectMultiScale(predict_image)
 
                 if test_image_path.endswith('_localRecognize.png') or test_image_path.endswith('_remoteRecognize.png'):
-                    print "doing face recognition ..."
+                    print "doing face recognition ... ..."
 
                     # print "# of faces: " + str(len(faces));
                     # print faces;
 
                     test_log_path = test_image_path[:test_image_path.rfind('.')+1]+"log"
                     test_log_path_file_name_haha = test_log_path[test_log_path.rfind('/'):]
-                    print test_log_path_file_name_haha
+                    print "testing log      : " + test_log_path_file_name_haha
                     test_log_path_file_name_haha = test_log_path_file_name_haha[test_log_path_file_name_haha.find('_'):]
-                    print test_log_path_file_name_haha
+                    print "testing log    2 : " + test_log_path_file_name_haha
 
                     test_latest_path = test_image_path[:test_image_path.rfind('.')+1]+"latest"
                     test_latest_path_file_name_haha = test_latest_path[test_latest_path.rfind('/'):]
-                    print test_latest_path_file_name_haha
+                    print "testing latest   : " + test_latest_path_file_name_haha
                     test_latest_path_file_name_haha = test_latest_path_file_name_haha[test_latest_path_file_name_haha.find('_'):]
-                    print test_latest_path_file_name_haha
+                    print "testing latest 2 : " + test_latest_path_file_name_haha
 
 
                     if len(faces) < 1:

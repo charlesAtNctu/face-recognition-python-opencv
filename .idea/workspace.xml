@@ -25,8 +25,8 @@
       <file leaf-file-name="facerecognizer2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/facerecognizer2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
-              <caret line="162" column="57" selection-start-line="162" selection-start-column="57" selection-end-line="162" selection-end-column="57" />
+            <state relative-caret-position="160">
+              <caret line="147" column="57" selection-start-line="147" selection-start-column="57" selection-end-line="147" selection-end-column="57" />
               <folding>
                 <element signature="e#2#32#0" expanded="true" />
               </folding>
@@ -843,8 +843,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/facerecognizer2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="162" column="57" selection-start-line="162" selection-start-column="57" selection-end-line="162" selection-end-column="57" />
+        <state relative-caret-position="160">
+          <caret line="147" column="57" selection-start-line="147" selection-start-column="57" selection-end-line="147" selection-end-column="57" />
           <folding>
             <element signature="e#2#32#0" expanded="true" />
           </folding>
