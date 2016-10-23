@@ -151,7 +151,18 @@ def main(argv):
                     # print faces;
 
                     test_log_path = test_image_path[:test_image_path.rfind('.')+1]+"log"
+                    test_log_path_file_name_haha = test_log_path[test_log_path.rfind('/'):]
+                    print test_log_path_file_name_haha
+                    test_log_path_file_name_haha = test_log_path_file_name_haha[test_log_path_file_name_haha.find('_'):]
+                    print test_log_path_file_name_haha
+
                     test_latest_path = test_image_path[:test_image_path.rfind('.')+1]+"latest"
+                    test_latest_path_file_name_haha = test_latest_path[test_latest_path.rfind('/'):]
+                    print test_latest_path_file_name_haha
+                    test_latest_path_file_name_haha = test_latest_path_file_name_haha[test_latest_path_file_name_haha.find('_'):]
+                    print test_latest_path_file_name_haha
+
+
                     if len(faces) < 1:
                         with open(dest_dir_path+test_log_path[test_log_path.rfind('/')+1:], 'a') as file:
                             file.write(datetime.datetime.now().strftime('%Y%m%d%H%M%S%f') + ","
