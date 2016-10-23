@@ -151,15 +151,15 @@ def main(argv):
                     # print faces;
 
                     test_log_path = test_image_path[:test_image_path.rfind('.')+1]+"log"
-                    test_log_path_file_name_haha = test_log_path[test_log_path.rfind('/'):]
+                    test_log_path_file_name_haha = test_log_path[test_log_path.rfind('/')+1:]
                     print "testing log      : " + test_log_path_file_name_haha
-                    test_log_path_file_name_haha = test_log_path_file_name_haha[test_log_path_file_name_haha.find('_'):]
+                    test_log_path_file_name_haha = test_log_path_file_name_haha[test_log_path_file_name_haha.find('_')+1:]
                     print "testing log    2 : " + test_log_path_file_name_haha
 
                     test_latest_path = test_image_path[:test_image_path.rfind('.')+1]+"latest"
-                    test_latest_path_file_name_haha = test_latest_path[test_latest_path.rfind('/'):]
+                    test_latest_path_file_name_haha = test_latest_path[test_latest_path.rfind('/')+1:]
                     print "testing latest   : " + test_latest_path_file_name_haha
-                    test_latest_path_file_name_haha = test_latest_path_file_name_haha[test_latest_path_file_name_haha.find('_'):]
+                    test_latest_path_file_name_haha = test_latest_path_file_name_haha[test_latest_path_file_name_haha.find('_')+1:]
                     print "testing latest 2 : " + test_latest_path_file_name_haha
 
 
