@@ -152,24 +152,26 @@ def main(argv):
 
                     test_log_path = test_image_path[:test_image_path.rfind('.')+1]+"log"
                     test_log_path_file_name_haha = test_log_path[test_log_path.rfind('/')+1:]
-                    print "testing log      : " + test_log_path_file_name_haha
+                    # print "testing log      : " + test_log_path_file_name_haha
                     test_log_path_file_name_haha = test_log_path_file_name_haha[test_log_path_file_name_haha.find('_')+1:]
-                    print "testing log    2 : " + test_log_path_file_name_haha
+                    # print "testing log    2 : " + test_log_path_file_name_haha
 
                     test_latest_path = test_image_path[:test_image_path.rfind('.')+1]+"latest"
                     test_latest_path_file_name_haha = test_latest_path[test_latest_path.rfind('/')+1:]
-                    print "testing latest   : " + test_latest_path_file_name_haha
+                    # print "testing latest   : " + test_latest_path_file_name_haha
                     test_latest_path_file_name_haha = test_latest_path_file_name_haha[test_latest_path_file_name_haha.find('_')+1:]
-                    print "testing latest 2 : " + test_latest_path_file_name_haha
+                    # print "testing latest 2 : " + test_latest_path_file_name_haha
 
 
                     if len(faces) < 1:
-                        with open(dest_dir_path+test_log_path[test_log_path.rfind('/')+1:], 'a') as file:
+                        # with open(dest_dir_path+test_log_path[test_log_path.rfind('/')+1:], 'a') as file:
+                        with open(dest_dir_path + test_log_path_file_name_haha, 'a') as file:
                             file.write(datetime.datetime.now().strftime('%Y%m%d%H%M%S%f') + ","
                                                                                             "No_Face_Detected,1000.0"
                                                                                             ","
                                                                                             "0,0,0,0\n")
-                        with open(dest_dir_path+test_latest_path[test_latest_path.rfind('/')+1:], 'w') as file:
+                        # with open(dest_dir_path+test_latest_path[test_latest_path.rfind('/')+1:], 'w') as file:
+                        with open(dest_dir_path + test_latest_path_file_name_haha, 'w') as file:
                             file.write(datetime.datetime.now().strftime('%Y%m%d%H%M%S%f') + ","
                                                                                             "No_Face_Detected,1000.0"
                                                                                             ","
@@ -192,9 +194,11 @@ def main(argv):
                         print "writing " + test_log + " to " + test_log_path
                         print "writing " + test_log + " to " + test_latest_path
 
-                        with open(dest_dir_path+test_log_path[test_log_path.rfind('/')+1:], 'a') as file:
+                        # with open(dest_dir_path+test_log_path[test_log_path.rfind('/')+1:], 'a') as file:
+                        with open(dest_dir_path + test_log_path_file_name_haha, 'a') as file:
                             file.write(test_log+"\n")
-                        with open(dest_dir_path+test_latest_path[test_latest_path.rfind('/')+1:], 'w') as file:
+                        # with open(dest_dir_path+test_latest_path[test_latest_path.rfind('/')+1:], 'w') as file:
+                        with open(dest_dir_path + test_latest_path_file_name_haha, 'w') as file:
                             file.write(test_log+"\n")
 
                         #print ""
